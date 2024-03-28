@@ -76,7 +76,10 @@ const tableBodyHTML = document.getElementById("table-body")
 
 console.dir (tableBodyHTML)
 
-users.forEach((user) => {
+function renderUsers(arrayUsers){
+
+  tableBodyHTML.innerHTML= ''
+arrayUsers.forEach((user) => {
    
     tableBodyHTML.innerHTML+=`<tr>
             <td class="user-image">
@@ -88,4 +91,26 @@ users.forEach((user) => {
             <td class="user-actions"></td>
             </tr>`
 })
+}
+renderUsers(users)
 
+function inputSearch(evt){
+//tomar lo que la persona ha escrito 
+const search = evt.target.value.toLowerCase();
+//recorrer el array y filtras por todos usuarios que coincida
+//pintar la tabla de resultados 
+const filterredUsers = users.filter((usr)=> {
+
+ if (usr.fullname.toLowerCase().includes(search)) {
+  return true;
+ 
+ }
+return false;
+
+})
+
+renderUsers(filterredUsers)
+
+
+
+}

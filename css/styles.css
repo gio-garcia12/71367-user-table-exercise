@@ -3,6 +3,9 @@
     overflow-x: scroll;
 }
 
+.user-search{
+    padding:.5ren;
+}
 
 .user-image img{
     width: 60px;
