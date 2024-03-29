@@ -111,6 +111,29 @@ return false;
 
 renderUsers(filterredUsers)
 
+}
 
+function sortAsc() {
+const collator = new Intl.Collator(undefined, {sensitivity: 'base'})
+  users.sort((a, b) => {
+return collator.compare(a.fullname, b.fullname)
+      })
+    renderUsers(users)
+
+}
+
+
+
+function sortDesc() {
+  users.sort((a, b) => {
+if (a.fullname.toLowerCase() < b.fullname.toLowerCase()){
+  return 1;
+}
+if (a.fullname.toLowerCase() > b.fullname.toLowerCase()){
+  return -1
+}
+return 0
+  })
+renderUsers(users)
 
 }
